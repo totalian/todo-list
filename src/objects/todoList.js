@@ -1,4 +1,4 @@
-const TodoList = () => {
+const TodoList = (() => {
     const todoList = []
 
     const addTodo = todo => {
@@ -15,6 +15,6 @@ const TodoList = () => {
     const getTodoList = () => todoList
 
     return {getTodoList,addTodo,removeTodo}
-} 
+})()
 
 export default TodoList
