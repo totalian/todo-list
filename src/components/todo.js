@@ -20,5 +20,5 @@ const todo = (name,dueDate,...tags) => {
         }
     }
 
-    return {name,dueDate,isCompleted,tagList,addTags,removeTags}
+    return {name,dueDate,isCompleted,tagList,addTags,removeTags,setCompleted,setUncompleted}
 }
