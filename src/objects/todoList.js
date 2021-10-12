@@ -14,7 +14,13 @@ const TodoList = (() => {
 
     const getTodoList = () => todoList
 
-    return {getTodoList,addTodo,removeTodo}
+    const getFilteredList = tag => {
+        todoList.filter(todo => {
+            return todo.getTags().includes(tag)
+        })
+    }
+
+    return {getTodoList,addTodo,removeTodo,getFilteredList}
 })()
 
 export default TodoList

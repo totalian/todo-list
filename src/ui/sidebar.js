@@ -1,6 +1,6 @@
 import AddIcon from '../assets/addIcon.png'
-import TagList from '../objects/tagList.js'
-import TodoList from '../objects/todoList.js'
+import TagList from './tagList.js'
+
 
 const Component = (() => {
     // CONTAINER
@@ -34,35 +34,17 @@ const Component = (() => {
     addIcon.src = AddIcon
     tagListTitleItem.appendChild(addIcon)
     
-    // add the tags and the number of tasks to the tag list
-    
-    // helper function to get the number of todos for a given list
-    const tagListTodoCount = tag => {
-        let todosWithTag = TodoList.getTodoList().filter(todo => {
-            return todo.tagList.includes(tag)
-        })
-        return todosWithTag.length
-    }
-
-    TagList.getTagList().forEach(tag => {
-        let tagListItem = document.createElement('div')
-        tagListItem.classList.add('tag-list-item')
-        tagListSection.appendChild(tagListItem)
-
-        let tagName = tag.getName()
-        let tagListItemName = document.createElement('p')
-        tagListItemName.textContent = tagName
-        tagListItem.appendChild(tagListItemName)
-
-        let todoCount = tagListTodoCount(tag)
-        let tagListItemTodoCount = document.createElement('div')
-        tagListItemTodoCount.classList.add('tag-list-item-todo-count')
-        tagListItemTodoCount.textContent = todoCount
-        tagListItem.appendChild(tagListItemTodoCount)
-
-
-
+    // add actual tag list
+    let tagList = TagList.buildTagList()
+    tagList.forEach(tag => {
+        tagListSection.appendChild(tag.node)
     })
+
+    // COMPLETED
+    const completed = document.createElement('p')
+    completed.classList.add('emphasised')
+    completed.textContent = "Completed"
+    sidebar.appendChild(completed)
 
     return sidebar
 })()
