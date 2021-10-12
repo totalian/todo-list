@@ -1,5 +1,5 @@
 const TagList = (() => {
-    const tagList = [tag1]
+    const tagList = []
 
     const addTag = tag => {
         tagList.push(tag)
