@@ -1,5 +1,5 @@
 import AddIcon from '../assets/addIcon.png'
-import TagList from './tagList.js'
+import TagList from '../objects/tagList.js'
 import AddTagModal from './addTagModal.js'
 
 
@@ -35,19 +35,21 @@ const Component = (() => {
     addIcon.src = AddIcon
     tagListTitleItem.appendChild(addIcon)
 
-    // add actual tag list
-    const buildTagListUI = () => {
-        while(Array.from(tagListSection.childNodes).length > 1){
+    const clearTagList = () => {
+        while(tagListSection.firstChild.nextSibling){
             tagListSection.lastChild.remove()
         }
-        let tagList = TagList.buildTagList()
-        tagList.forEach(tag => {
-            console.log(Array.from(tagListSection.childNodes))
-            if(Array.from(tagListSection.childNodes).includes(tag.node)){return}
-            tagListSection.appendChild(tag.node)
+    }
+
+    // add actual tag list
+    const renderTagList = () => {
+        clearTagList()
+        let tagList = TagList.build()
+        tagList.forEach(obj => {
+            tagListSection.appendChild(obj.node)
         })
     }
-    buildTagListUI()
+    renderTagList()
 
     // COMPLETED
     const completed = document.createElement('p')
@@ -60,7 +62,7 @@ const Component = (() => {
         AddTagModal.display()
     })
 
-    return {sidebar,buildTagListUI}
+    return { sidebar, renderTagList }
 })()
 
 export default Component

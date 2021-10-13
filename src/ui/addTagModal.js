@@ -1,6 +1,6 @@
 import Tag from "../objects/tag.js"
 import TagList from "../objects/tagList.js"
-import Sidebar from './sidebar.js'
+import Sidebar from "./sidebar.js"
 
 const Component = (() => {
     const modal = document.createElement('div')
@@ -47,11 +47,8 @@ const Component = (() => {
         let newTagName = newTagInput.value
         newTag.setName(newTagName)
         TagList.addTag(newTag)
-        TagList.getTagList().forEach(tag => {
-            console.log(tag.getName())
-        })
         newTagInput.value = ""
-        Sidebar.buildTagListUI()
+        Sidebar.renderTagList()
         hide()
     })
 
