@@ -1,5 +1,3 @@
-import Tag from "./tag.js"
-
 const TagList = (() => {
     const tagList = []
 
@@ -40,7 +38,8 @@ const TagList = (() => {
             obj.node.addEventListener('click', e => {
                 // first remove others from being bold
                 tagListUi.forEach(otherObj => {
-                    otherObj.node.classList.remove('emphasised')
+                    console.log(otherObj)
+                    otherObj.node.firstChild.classList.remove('emphasised')
                 })
                 // now make the one you clicked bold
                 e.target.classList.add('emphasised')
