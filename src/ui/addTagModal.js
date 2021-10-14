@@ -49,6 +49,10 @@ const Component = (() => {
         TagList.addTag(newTag)
         newTagInput.value = ""
         Sidebar.renderTagList()
+        let tagObj = TagList.tagListUi.find(obj => {
+            return obj.tag == newTag
+        })
+        TagList.selectTag(tagObj)
         hide()
     })
 
