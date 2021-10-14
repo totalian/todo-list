@@ -4,6 +4,7 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+    display: flex;
 }
 
 p {
@@ -108,4 +109,18 @@ p {
     font-size: 14px;
     font-weight: 700;
     border-radius: 5px;
+}
+
+.body {
+    width: 622px;
+    height: auto;
+    margin-top: 135px;
+    margin-left: 164px;
+    display: flex;
+    flex-direction: column;
+    gap:36px;
+}
+
+.create-task-container {
+    display: flex;
 }
