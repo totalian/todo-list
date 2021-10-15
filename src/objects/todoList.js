@@ -1,3 +1,5 @@
+import Todo from './todo'
+
 const TodoList = (() => {
     const todoList = []
 
@@ -20,7 +22,17 @@ const TodoList = (() => {
         })
     }
 
-    return {getTodoList,addTodo,removeTodo,getFilteredList}
+    const build = list => {
+        const todoListContainer = document.createElement('div')
+        todoListContainer.classList.add('todo-list-container')
+        list.forEach(todo => {
+            let todoItem = todo.build()
+            todoListContainer.appendChild(todoItem)
+        })
+        return todoListContainer
+    }
+
+    return {getTodoList,addTodo,removeTodo,getFilteredList,build}
 })()
 
 export default TodoList

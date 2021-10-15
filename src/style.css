@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
-@import '~js-datepicker/dist/datepicker.min.css';
 
 body {
     margin: 0;
@@ -113,7 +112,7 @@ p {
 }
 
 .body {
-    width: 622px;
+    width: auto;
     height: auto;
     margin-top: 135px;
     margin-left: 164px;
@@ -137,8 +136,87 @@ p {
 
 .task-input-wide {
     width: 466.5px;
+    color: #707070;
+    font-family: inherit;
 }
 
-.create-task-container input:focus{
+input:focus{
     outline: none;
+}
+
+.create-task-container img { 
+    max-height: 14px;
+    align-self: center;
+}
+
+.date-picker{
+    color: #707070;
+    font-family: inherit;
+}
+
+.todo-container {
+    width: auto;
+    height: 70px;
+    background-color: #F7F8FF;
+    position: relative;
+    box-sizing:content-box
+}
+
+.checkbox {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 12px;
+
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+}
+
+.todo-date{
+    position: absolute;
+    /* width: 92px; */
+    /* height: 16px; */
+    left: 494px;
+    top: 12px;
+    text-align: right;
+}
+
+.tag-list-container {
+    display: flex;
+    position: absolute;
+    top: 40px;
+    left: 42px;
+    gap: 15px;
+}
+
+.todo-name {
+    position: absolute;
+    width: 425px;
+    height: 16px;
+    left: 42px;
+    top: 12px;
+}
+
+.tag-ui {
+    display: flex;
+    align-items: flex-start;
+    padding: 2px 11px;
+    background: #2A2E86;
+    border-radius: 96px;
+    color: white;
+}
+
+.add-tag {
+    color: #2A2E86;
+    align-self: center;
+}
+
+.todo-list-container{
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    gap: 10px;
+
 }
