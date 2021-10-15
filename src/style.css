@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+@import '~js-datepicker/dist/datepicker.min.css';
 
 body {
     margin: 0;
@@ -123,4 +124,21 @@ p {
 
 .create-task-container {
     display: flex;
+    gap: 23px;
+}
+
+.task-input {
+    border: none;
+    border-bottom: 1px solid #707070;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    width: 132px;
+}
+
+.task-input-wide {
+    width: 466.5px;
+}
+
+.create-task-container input:focus{
+    outline: none;
 }
