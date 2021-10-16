@@ -249,3 +249,7 @@ input:focus{
     color: #fff;
     background-color: #2A2E86;
 }
+
+.completed-task {
+    border: solid 1px green;
+}

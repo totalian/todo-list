@@ -25,6 +25,7 @@ const TodoList = (() => {
     }
 
     const build = list => {
+        list = list.filter(todo => !todo.getCompletionState())
         const todoListContainer = document.createElement('div')
         todoListContainer.classList.add('todo-list-container')
         list.forEach(todo => {
@@ -37,6 +38,13 @@ const TodoList = (() => {
             addTag.addEventListener('click', () => {
                 TaskTags.render(todoItem.todo)
             })
+
+            let checkbox = todoItem.node.querySelector('img')
+            checkbox.addEventListener('click', () => {
+                todoItem.todo.getCompletionState() ? todoItem.todo.setUncompleted : todoItem.todo.setCompleted()
+                todoItem.node.classList.toggle('completed-task')
+            })
+
         })
         return todoListContainer
     }
