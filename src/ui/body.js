@@ -20,7 +20,7 @@ const Component = (() => {
 
     const updateListForTag = tag => {
         updateTitle(tag.getName())
-        updateCurrentTodos(tag.getTodos())
+        updateCurrentTodos(tag.getTodos(tag))
     }
 
     const createTaskContainer = document.createElement('div')
@@ -62,17 +62,18 @@ const Component = (() => {
 
     // add event listener to add task button
     addIcon.addEventListener('click', () => {
-        console.log(TagList.selectedTag)
         if (createTaskInput.value == "") { return }
         let newTodo = Todo()
         newTodo.setName(createTaskInput.value)
         if (createDateInput.value) {
             newTodo.setDate(createDateInput.valueAsDate)
         }
-        if(TagList.selectedTag){
-            newTodo.addTags(selectedTag)
-        }
         TodoList.addTodo(newTodo)
+        if(TagList.getSelectedTag()){
+            let selectedTag = TagList.getSelectedTag()
+            newTodo.addTags([selectedTag])
+            updateListForTag(selectedTag)
+        }
         renderTodoList()
         clearInputs()
         return newTodo

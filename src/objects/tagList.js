@@ -38,6 +38,8 @@ const TagList = (() => {
         return selectedTag
     }
 
+    const getSelectedTag = () => selectedTag
+
     // takes the tag list and returns the taglistUI + build dom elements
     const buildTagListUi = () => {
         while(tagListUi.length){tagListUi.pop()}
@@ -78,7 +80,7 @@ const TagList = (() => {
     }
 
 
-    return { getTagList, addTag, removeTag, build, selectTag, tagListUi, selectedTag, deselectTags }
+    return { getTagList, addTag, removeTag, build, selectTag, tagListUi, selectedTag, deselectTags, getSelectedTag }
 })()
 
 export default TagList
