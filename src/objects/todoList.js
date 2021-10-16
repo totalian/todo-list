@@ -1,4 +1,6 @@
-import Todo from './todo'
+import TaskTags from '../ui/editTodoTagsModal'
+import Sidebar from '../ui/sidebar'
+import Body from '../ui/body'
 
 const TodoList = (() => {
     const todoList = []
@@ -26,8 +28,15 @@ const TodoList = (() => {
         const todoListContainer = document.createElement('div')
         todoListContainer.classList.add('todo-list-container')
         list.forEach(todo => {
-            let todoItem = todo.build()
-            todoListContainer.appendChild(todoItem)
+            let todoItem = {}
+            todoItem.node = todo.build()
+            todoItem.todo = todo
+            todoListContainer.appendChild(todoItem.node)
+
+            let addTag = todoItem.node.querySelector('.add-tag')
+            addTag.addEventListener('click', () => {
+                TaskTags.render(todoItem.todo)
+            })
         })
         return todoListContainer
     }

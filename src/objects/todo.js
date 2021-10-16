@@ -1,5 +1,6 @@
 import Circle from '../assets/circle.png'
 import { format } from 'date-fns'
+import TaskTagsModal from '../ui/editTodoTagsModal'
 
 let taskNumber = 0
 
@@ -44,6 +45,12 @@ const Todo = () => {
         for (let i = 0; i < removedTags.length; i++) {
             let positionToRemove = tagList.indexOf(i)
             tagList.splice(positionToRemove, 1)
+        }
+    }
+
+    const removeAllTags = () => {
+        while(tagList.length>0){
+            tagList.pop()
         }
     }
 
@@ -98,7 +105,7 @@ const Todo = () => {
 
     const getTaskId = () => taskId
 
-    return { getName, setName, getDate, setDate, getCompletionState, getTags, addTags, removeTags, setCompleted, setUncompleted, getTaskId, build }
+    return { getName, setName, getDate, setDate, getCompletionState, getTags, addTags, removeTags, setCompleted, setUncompleted, getTaskId, build, removeAllTags }
 }
 
 export default Todo

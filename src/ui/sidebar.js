@@ -19,7 +19,6 @@ const Component = (() => {
 
     title.addEventListener('click', () => {
         let fullTaskList = TodoList.getTodoList()
-        console.log(fullTaskList)
         TagList.deselectTags()
         Body.updateTitle("My Task List")
         Body.updateCurrentTodos(fullTaskList)
