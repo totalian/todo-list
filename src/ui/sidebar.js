@@ -1,6 +1,9 @@
 import AddIcon from '../assets/addIcon.png'
 import TagList from '../objects/tagList.js'
 import AddTagModal from './addTagModal.js'
+import Body from './body.js'
+import TodoList from '../objects/todoList.js'
+
 
 
 const Component = (() => {
@@ -13,6 +16,15 @@ const Component = (() => {
     title.classList.add('emphasised')
     title.textContent = "My Todo List"
     sidebar.appendChild(title)
+
+    title.addEventListener('click', () => {
+        let fullTaskList = TodoList.getTodoList()
+        console.log(fullTaskList)
+        TagList.deselectTags()
+        Body.updateTitle("My Task List")
+        Body.updateCurrentTodos(fullTaskList)
+        Body.renderTodoList()
+    })
 
     // TAG LIST
 

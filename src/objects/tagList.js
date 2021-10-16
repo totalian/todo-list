@@ -1,3 +1,6 @@
+import Body from '../ui/body.js'
+import TodoList from './todoList.js'
+
 const TagList = (() => {
     // just the list of tags
     const tagList = []
@@ -21,12 +24,18 @@ const TagList = (() => {
         tagListUi.forEach(obj => {
             obj.node.firstChild.classList.remove('emphasised')
             obj.node.classList.remove('emphasised')
+            selectedTag = ""
         })
     }
 
+    let selectedTag
+
     const selectTag = obj => {
         obj.node.classList.add('emphasised')
-        return obj.tag
+        selectedTag = obj.tag
+        Body.updateListForTag(selectedTag)
+        Body.renderTodoList()
+        return selectedTag
     }
 
     // takes the tag list and returns the taglistUI + build dom elements
@@ -69,9 +78,7 @@ const TagList = (() => {
     }
 
 
-
-
-    return { getTagList, addTag, removeTag, build, selectTag, tagListUi }
+    return { getTagList, addTag, removeTag, build, selectTag, tagListUi, selectedTag, deselectTags }
 })()
 
 export default TagList
