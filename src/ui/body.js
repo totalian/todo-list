@@ -2,6 +2,7 @@ import AddIcon from '../assets/addIcon.png'
 import Todo from '../objects/todo.js'
 import TodoList from '../objects/todoList.js'
 import TagList from '../objects/tagList'
+import Sidebar from './sidebar.js'
 
 const Component = (() => {
     const body = document.createElement('div')
@@ -75,6 +76,7 @@ const Component = (() => {
             updateListForTag(selectedTag)
         }
         renderTodoList()
+        Sidebar.renderTagList()
         clearInputs()
         return newTodo
     })

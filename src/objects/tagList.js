@@ -52,7 +52,7 @@ const TagList = (() => {
             tagListItemName.textContent = tagName
             tagListItem.appendChild(tagListItemName)
 
-            let todoCount = tag.todoCount()
+            let todoCount = tag.todoCount(tag)
             let tagListItemTodoCount = document.createElement('div')
             tagListItemTodoCount.classList.add('tag-list-item-todo-count')
             tagListItemTodoCount.textContent = todoCount
