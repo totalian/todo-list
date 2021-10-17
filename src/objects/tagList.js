@@ -35,6 +35,7 @@ const TagList = (() => {
         selectedTag = obj.tag
         Body.updateListForTag(selectedTag)
         Body.renderTodoList()
+        Body.showInputs()
         return selectedTag
     }
 

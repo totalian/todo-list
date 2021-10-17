@@ -22,6 +22,7 @@ const Component = (() => {
         TagList.deselectTags()
         Body.updateTitle("My Task List")
         Body.updateCurrentTodos(fullTaskList)
+        Body.showInputs()
         Body.renderTodoList()
     })
 
@@ -67,6 +68,16 @@ const Component = (() => {
     completed.classList.add('emphasised')
     completed.textContent = "Completed"
     sidebar.appendChild(completed)
+
+    // event listened for sidebar
+    completed.addEventListener('click', () => {
+        let fullTaskList = TodoList.getTodoList()
+        TagList.deselectTags()
+        Body.updateTitle("Completed")
+        Body.updateCurrentTodos(fullTaskList)
+        Body.hideInputs()
+        Body.renderTodoList(true)
+    })
 
     // ADD TAG BUTTON EVENT LISTENER
     addIcon.addEventListener('click', () => {

@@ -25,14 +25,15 @@ const TodoList = (() => {
         })
     }
 
-    const build = list => {
-        list = list.filter(todo => !todo.getCompletionState())
+    const build = (list,completed = false) => {
+        list = list.filter(todo => todo.getCompletionState() ==  completed)
         const todoListContainer = document.createElement('div')
         todoListContainer.classList.add('todo-list-container')
         list.forEach(todo => {
             let todoItem = {}
             todoItem.node = todo.build()
             todoItem.todo = todo
+            if(todoItem.todo.getCompletionState() == true){todoItem.node.classList.add('completed-task')}
             todoListContainer.appendChild(todoItem.node)
 
             let addTag = todoItem.node.querySelector('.add-tag')

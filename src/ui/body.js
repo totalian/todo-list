@@ -54,10 +54,18 @@ const Component = (() => {
         if (currentList) { body.removeChild(currentList) }
     }
 
+    const hideInputs = () => {
+        createTaskContainer.style.display = "none"
+    }
 
-    const renderTodoList = () => {
+    const showInputs = () => {
+        createTaskContainer.style.display = "flex"
+    }
+
+
+    const renderTodoList = (completed = false) => {
         clearTodoList()
-        let todoList = TodoList.build(currentTodos)
+        let todoList = TodoList.build(currentTodos,completed)
         body.appendChild(todoList)
     }
 
@@ -82,7 +90,7 @@ const Component = (() => {
     })
 
 
-    return { body, createDateInput, updateListForTag, updateTitle, updateCurrentTodos, renderTodoList }
+    return { body, createDateInput, updateListForTag, updateTitle, updateCurrentTodos, renderTodoList, hideInputs, showInputs }
 })()
 
 export default Component
