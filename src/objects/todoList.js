@@ -1,6 +1,7 @@
 import TaskTags from '../ui/editTodoTagsModal'
 import Sidebar from '../ui/sidebar'
 import Body from '../ui/body'
+import TagList from './tagList'
 
 const TodoList = (() => {
     const todoList = []
@@ -41,8 +42,9 @@ const TodoList = (() => {
 
             let checkbox = todoItem.node.querySelector('img')
             checkbox.addEventListener('click', () => {
-                todoItem.todo.getCompletionState() ? todoItem.todo.setUncompleted : todoItem.todo.setCompleted()
+                todoItem.todo.getCompletionState() ? todoItem.todo.setUncompleted() : todoItem.todo.setCompleted()
                 todoItem.node.classList.toggle('completed-task')
+                Sidebar.renderTagList()
             })
 
         })

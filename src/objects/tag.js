@@ -17,7 +17,7 @@ const Tag = () => {
     }
 
     const todoCount = tag => {
-        let todosWithTag = getTodos(tag)
+        let todosWithTag = getTodos(tag).filter(todo => !todo.getCompletionState())
         return todosWithTag.length
     }
 
